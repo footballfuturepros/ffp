@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 500">
+  <defs>
+    <linearGradient id="playerGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#B8D935"/>
+      <stop offset="100%" stop-color="#7C9A24"/>
+    </linearGradient>
+    <radialGradient id="lightBurst" cx="70%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="rgba(184,217,53,0.35)"/>
+      <stop offset="100%" stop-color="rgba(184,217,53,0)"/>
+    </radialGradient>
+  </defs>
+
+  <circle cx="290" cy="150" r="220" fill="url(#lightBurst)"/>
+
+  <!-- motion lines trailing the ball -->
+  <path d="M300 235 L250 245" stroke="#B8D935" stroke-width="5" stroke-linecap="round" opacity="0.35"/>
+  <path d="M295 250 L245 258" stroke="#B8D935" stroke-width="5" stroke-linecap="round" opacity="0.2"/>
+
+  <!-- ball -->
+  <circle cx="352" cy="222" r="23" fill="#FFFFFF"/>
+  <path d="M352 205 L360.7 211.4 L357.5 221.6 L346.5 221.6 L343.3 211.4 Z" fill="#0A0A0A"/>
+  <path d="M352 205 L352 199" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M360.7 211.4 L368 206" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M357.5 221.6 L360.5 229.5" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M346.5 221.6 L343.5 229.5" stroke="#0A0A0A" stroke-width="2"/>
+  <path d="M343.3 211.4 L336 206" stroke="#0A0A0A" stroke-width="2"/>
+
+  <!-- back arm -->
+  <rect x="139" y="150" width="20" height="76" rx="10" fill="url(#playerGrad)" transform="rotate(-150 149 150)"/>
+
+  <!-- torso -->
+  <rect x="184" y="138" width="52" height="128" rx="26" fill="url(#playerGrad)" transform="rotate(-6 210 202)"/>
+
+  <!-- head -->
+  <circle cx="214" cy="108" r="27" fill="url(#playerGrad)"/>
+
+  <!-- front arm -->
+  <rect x="224" y="148" width="20" height="72" rx="10" fill="url(#playerGrad)" transform="rotate(65 234 148)"/>
+
+  <!-- standing leg (thigh + shin) -->
+  <rect x="176" y="252" width="36" height="92" rx="18" fill="url(#playerGrad)" transform="rotate(10 194 252)"/>
+  <rect x="172" y="336" width="30" height="98" rx="15" fill="url(#playerGrad)" transform="rotate(-4 187 336)"/>
+  <ellipse cx="182" cy="436" rx="24" ry="11" fill="url(#playerGrad)" transform="rotate(4 182 436)"/>
+
+  <!-- kicking leg (thigh + shin swung forward) -->
+  <rect x="204" y="248" width="38" height="88" rx="19" fill="url(#playerGrad)" transform="rotate(-58 223 248)"/>
+  <rect x="252" y="192" width="32" height="94" rx="16" fill="url(#playerGrad)" transform="rotate(-102 268 192)"/>
+  <ellipse cx="332" cy="228" rx="26" ry="12" fill="url(#playerGrad)" transform="rotate(-18 332 228)"/>
+
+  <!-- ground shadow -->
+  <ellipse cx="210" cy="464" rx="120" ry="14" fill="#000000" opacity="0.25"/>
+</svg>
