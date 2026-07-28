@@ -54,10 +54,24 @@
   // Mobile nav toggle
   var navToggle = document.getElementById("navToggle");
   var navLinks = document.getElementById("navLinks");
+  var siteHeader = document.querySelector(".site-header");
+
+  function positionMobileNav(){
+    if(siteHeader && navLinks){
+      var h = siteHeader.getBoundingClientRect().bottom;
+      navLinks.style.top = h + "px";
+      navLinks.style.height = (window.innerHeight - h) + "px";
+    }
+  }
+
   if(navToggle && navLinks){
     navToggle.addEventListener("click", function(){
+      positionMobileNav();
       var open = navLinks.classList.toggle("open");
       navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+    });
+    window.addEventListener("resize", function(){
+      if(navLinks.classList.contains("open")) positionMobileNav();
     });
     navLinks.querySelectorAll("a").forEach(function(a){
       a.addEventListener("click", function(){
