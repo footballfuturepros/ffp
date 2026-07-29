@@ -191,7 +191,14 @@ header.site-header::before{
   transform:translate(-50%,-50%);
   border:none;pointer-events:none;
 }
-.agent-placeholder{width:44%;opacity:0.5;}
+.agent-placeholder{
+  position:absolute;inset:0;z-index:2;
+  display:flex;align-items:center;justify-content:center;
+  background:var(--pitch-ink-2);
+  transition:opacity .6s ease;
+}
+.agent-placeholder.is-hidden{opacity:0;pointer-events:none;}
+.agent-logo{width:42%;height:auto;}
 .agent-overlay{
   position:absolute;left:0;right:0;bottom:0;padding:12px 14px;
   background:linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));

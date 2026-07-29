@@ -126,13 +126,19 @@
 
   // Agenciados video teasers — activates automatically once you fill in
   // data-video="assets/players/name.mp4" and/or data-photo="assets/players/name.jpg"
-  // on a .agent-card in index.html. Leave them empty to keep the placeholder.
+  // on a .agent-card in index.html. Leave them empty to keep the logo showing.
+  // When a video is present, the logo shows first, then fades out once the video starts.
   document.querySelectorAll(".agent-card").forEach(function(card){
     var videoSrc = card.getAttribute("data-video");
     var photoSrc = card.getAttribute("data-photo");
     var youtubeId = card.getAttribute("data-youtube");
     var media = card.querySelector(".agent-media");
     var placeholder = card.querySelector(".agent-placeholder");
+
+    function hidePlaceholderAfter(ms){
+      if(!placeholder) return;
+      setTimeout(function(){ placeholder.classList.add("is-hidden"); }, ms);
+    }
 
     if(youtubeId){
       var iframe = document.createElement("iframe");
@@ -142,8 +148,8 @@
       iframe.setAttribute("frameborder", "0");
       iframe.setAttribute("allow", "autoplay; encrypted-media");
       iframe.className = "agent-youtube";
-      media.innerHTML = "";
-      media.appendChild(iframe);
+      media.insertBefore(iframe, placeholder);
+      hidePlaceholderAfter(2500);
     } else if(videoSrc){
       var video = document.createElement("video");
       video.src = videoSrc;
@@ -152,14 +158,16 @@
       video.autoplay = true;
       video.playsInline = true;
       if(photoSrc) video.poster = photoSrc;
-      media.innerHTML = "";
-      media.appendChild(video);
+      media.insertBefore(video, placeholder);
+      video.addEventListener("playing", function(){ hidePlaceholderAfter(300); }, {once:true});
+      hidePlaceholderAfter(3000); // fallback in case "playing" never fires
     } else if(photoSrc){
       media.style.backgroundImage = "url('" + photoSrc + "')";
       media.style.backgroundSize = "cover";
       media.style.backgroundPosition = "center";
-      if(placeholder) placeholder.style.display = "none";
+      if(placeholder) placeholder.classList.add("is-hidden");
     }
+    // If none of the above: logo placeholder stays visible permanently — that's the intended default.
   });
 
   // Cookie consent banner
