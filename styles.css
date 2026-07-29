@@ -171,6 +171,36 @@ header.site-header::before{
 .hero-art{display:flex;justify-content:center;align-items:center;}
 .hero-art img{width:100%;max-width:400px;height:auto;filter:drop-shadow(0 30px 50px rgba(0,0,0,0.45));}
 
+/* Agenciados video-teaser grid */
+.agenciados{width:100%;}
+.agenciados-label{
+  display:inline-block;font-family:var(--ff-display);font-size:22px;letter-spacing:1px;
+  color:var(--floodlight);border:2px solid var(--floodlight);padding:10px 22px;border-radius:8px;
+  margin-bottom:20px;text-transform:uppercase;
+}
+.agenciados-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.agent-card{
+  position:relative;aspect-ratio:1/1;border-radius:12px;overflow:hidden;
+  border:2px solid var(--gold);background:var(--pitch-ink-2);
+}
+.agent-media{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--pitch-ink-2);}
+.agent-media video{width:100%;height:100%;object-fit:cover;}
+.agent-placeholder{width:44%;opacity:0.5;}
+.agent-overlay{
+  position:absolute;left:0;right:0;bottom:0;padding:12px 14px;
+  background:linear-gradient(0deg, rgba(0,0,0,0.75), rgba(0,0,0,0));
+  display:flex;flex-direction:column;gap:2px;
+}
+.agent-name{font-family:var(--ff-body);font-weight:700;font-size:14px;color:var(--floodlight);}
+.agent-meta{font-family:var(--ff-mono);font-size:11px;color:var(--floodlight-dim);letter-spacing:0.5px;}
+@media (max-width:920px){
+  .agenciados{max-width:420px;margin:0 auto;}
+}
+@media (max-width:480px){
+  .agenciados-grid{gap:12px;}
+  .agenciados-label{font-size:17px;padding:8px 16px;}
+}
+
 /* Trust strip */
 .trust{padding:64px 0;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark);}
 .trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}

@@ -124,6 +124,33 @@
   var yearEl = document.getElementById("year");
   if(yearEl) yearEl.textContent = new Date().getFullYear();
 
+  // Agenciados video teasers — activates automatically once you fill in
+  // data-video="assets/players/name.mp4" and/or data-photo="assets/players/name.jpg"
+  // on a .agent-card in index.html. Leave them empty to keep the placeholder.
+  document.querySelectorAll(".agent-card").forEach(function(card){
+    var videoSrc = card.getAttribute("data-video");
+    var photoSrc = card.getAttribute("data-photo");
+    var media = card.querySelector(".agent-media");
+    var placeholder = card.querySelector(".agent-placeholder");
+
+    if(videoSrc){
+      var video = document.createElement("video");
+      video.src = videoSrc;
+      video.muted = true;
+      video.loop = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      if(photoSrc) video.poster = photoSrc;
+      media.innerHTML = "";
+      media.appendChild(video);
+    } else if(photoSrc){
+      media.style.backgroundImage = "url('" + photoSrc + "')";
+      media.style.backgroundSize = "cover";
+      media.style.backgroundPosition = "center";
+      if(placeholder) placeholder.style.display = "none";
+    }
+  });
+
   // Cookie consent banner
   (function cookieBanner(){
     var CONSENT_KEY = "ffp_cookie_consent";
