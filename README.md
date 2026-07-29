@@ -60,26 +60,21 @@ git pull origin main --allow-unrelated-histories
 3. No painel da GoDaddy → seu domínio → **DNS Management**, adicione/edite esses registros exatamente como a Vercel indicou.
 4. Aguarde a propagação (geralmente de alguns minutos até 24h). A Vercel emite o certificado SSL automaticamente assim que o DNS propagar.
 
-## 5. Ativar o formulário de contato de verdade
+## 5. Formulário de contato
 
-Hoje o formulário de contato funciona por **fallback**: ao enviar, ele abre o app de e-mail do visitante já preenchido para `contact@footballfuturepros.com`. Funciona sem nenhuma configuração, mas exige que o visitante tenha um app de e-mail configurado.
+✅ **Já está ativo.** O formulário envia direto pra sua conta do Formspree (endpoint `https://formspree.io/f/xrenjwyb`), sem precisar abrir nenhum app de e-mail — a pessoa preenche e clica em enviar, e a mensagem cai na sua conta do Formspree (e no e-mail cadastrado lá).
 
-Para um envio direto (sem abrir e-mail), recomendo o **Formspree** (grátis até 50 envios/mês):
+Se algum dia precisar trocar o endpoint (por exemplo, se recriar o formulário no Formspree), é só achar essa linha no `index.html`:
+```html
+<form class="ffp-form" id="ffpForm" action="https://formspree.io/f/xrenjwyb" method="POST">
+```
+e trocar o link. Depois, commit e push.
 
-1. Crie uma conta em [formspree.io](https://formspree.io) usando `contact@footballfuturepros.com`.
-2. Crie um formulário novo e copie o endpoint (algo como `https://formspree.io/f/abcdwxyz`).
-3. Em `index.html`, ache a linha:
-   ```html
-   <form class="ffp-form" id="ffpForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-   ```
-   e troque `YOUR_FORM_ID` pelo endpoint real.
-4. Faça commit e push — a Vercel republica automaticamente.
-
-O `script.js` já detecta se o endpoint foi configurado: se ainda estiver com `YOUR_FORM_ID`, usa o fallback de e-mail; se você configurar o Formspree, passa a enviar direto sem sair da página.
+O plano gratuito do Formspree cobre até 50 envios por mês — se o site começar a receber mais contatos que isso, vale considerar um plano pago.
 
 ## 6. Trocar o e-mail de contato
 
-Se `contact@footballfuturepros.com` não for o e-mail final, atualize em dois lugares:
+Se `info@footballfuturepros.com` não for o e-mail final, atualize em dois lugares:
 - `index.html` → atributo `href="mailto:..."` no link de contato
 - `script.js` → constante `TO_EMAIL` no topo da função do formulário
 

@@ -87,7 +87,7 @@ Conteúdo pronto para usar em redes sociais, biografias, anúncios e materiais i
 [Nome]
 Football Future Pros
 Player Scouting & Career Pathways
-contact@footballfuturepros.com · footballfuturepros.com
+info@footballfuturepros.com · footballfuturepros.com
 ```
 
 ---

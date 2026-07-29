@@ -214,7 +214,7 @@
   // Contact form: tries Formspree endpoint; falls back to mailto if not configured
   var form = document.getElementById("ffpForm");
   var status = document.getElementById("formStatus");
-  var TO_EMAIL = "contact@footballfuturepros.com";
+  var TO_EMAIL = "info@footballfuturepros.com";
 
   if(form){
     form.addEventListener("submit", function(e){
