@@ -89,6 +89,7 @@ header.site-header::before{
   transition:color .2s ease;
 }
 .nav-links a:hover{color:var(--floodlight);}
+.nav-social{display:flex;align-items:center;}
 .nav-right{display:flex;align-items:center;gap:18px;}
 .lang-switch{display:flex;gap:4px;border:1px solid var(--line-dark);border-radius:999px;padding:3px;font-family:var(--ff-mono);}
 .lang-switch button{
