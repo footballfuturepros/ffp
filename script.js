@@ -130,10 +130,21 @@
   document.querySelectorAll(".agent-card").forEach(function(card){
     var videoSrc = card.getAttribute("data-video");
     var photoSrc = card.getAttribute("data-photo");
+    var youtubeId = card.getAttribute("data-youtube");
     var media = card.querySelector(".agent-media");
     var placeholder = card.querySelector(".agent-placeholder");
 
-    if(videoSrc){
+    if(youtubeId){
+      var iframe = document.createElement("iframe");
+      iframe.src = "https://www.youtube.com/embed/" + youtubeId +
+        "?autoplay=1&mute=1&loop=1&playlist=" + youtubeId +
+        "&controls=0&modestbranding=1&playsinline=1&rel=0";
+      iframe.setAttribute("frameborder", "0");
+      iframe.setAttribute("allow", "autoplay; encrypted-media");
+      iframe.className = "agent-youtube";
+      media.innerHTML = "";
+      media.appendChild(iframe);
+    } else if(videoSrc){
       var video = document.createElement("video");
       video.src = videoSrc;
       video.muted = true;

@@ -185,6 +185,12 @@ header.site-header::before{
 }
 .agent-media{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:var(--pitch-ink-2);}
 .agent-media video{width:100%;height:100%;object-fit:cover;}
+.agent-youtube{
+  position:absolute;top:50%;left:50%;
+  width:178%;height:100%;
+  transform:translate(-50%,-50%);
+  border:none;pointer-events:none;
+}
 .agent-placeholder{width:44%;opacity:0.5;}
 .agent-overlay{
   position:absolute;left:0;right:0;bottom:0;padding:12px 14px;
